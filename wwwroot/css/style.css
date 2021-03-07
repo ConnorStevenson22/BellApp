@@ -1,0 +1,92 @@
+body{
+    font: 400 16px/1.3 'PT Sans', Arial, sans-serif;
+    
+}
+#addItemForm, #Tablewrapper{
+
+    background-color: white;
+    border-radius: 2px;
+    margin: auto;
+    width: 30em;
+    padding: 10px;
+    margin-top:20px;
+    margin-bottom:50px;
+    text-align: center;
+  
+  }
+  #Tablewrapper table{
+    table-layout: fixed;
+    width: 100%;
+}
+#Tablewrapper td {
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 25%;
+  }
+/*TEXT SELECTION CSS*/
+.text-selection{
+    width:100%;
+    height:2.2em;
+    position: relative;
+  }
+  .text-selection input{
+    outline: none;
+    border: none;
+    margin-top: 0.6em;
+    width: 100%;
+    font-size: 1em;
+    height:0.8em;
+    border-bottom: 1px solid #528B8B;
+  }
+  .text-selection input:focus~label{
+      transform: scale(0.4);
+  }
+  .text-selection input::placeholder {
+    opacity: 0;
+  }
+  
+  .text-selection input:not(:placeholder-shown)~label {
+     transform: scale(0.4);
+  }
+  .text-selection label{
+    transform-origin: top left;
+    transition: transform 0.3s ease-out;
+    height:2em;
+    position:absolute;
+    top:0;
+    left:0;
+    font-size:1em
+  }
+  .text-selection p{
+    width: 100%;
+    position:absolute;
+    bottom:0;
+    right:0;
+    text-align: right;
+    color: red;
+    margin: 0px;
+    border-top:1px dotted red;
+    font-size: 0.6em;
+  }
+  /*SUBMIT BUTTON CSS*/
+button:focus {outline:0;}
+  .submit-selection{
+    margin:0px auto;
+    background-color: #E0EEEE;
+    width: 10em;
+    border-radius: 4px;
+      color: rgba(0, 0, 0, 0.6);
+      font-size: 0.8em;
+      line-height: 1;
+      text-align: center;
+      padding: 0.4em 0.4em;
+      margin-right: -1px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+      transition: all 0.1s ease-in-out;
+  }
+  .submit-selection:hover{
+    background-color: #528B8B;
+        box-shadow: none;
+  }
