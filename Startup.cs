@@ -31,15 +31,16 @@ namespace BellApplication
         {
             //DB STORAGE
             //services.AddSingleton<IUsersRepo,DbUsersRepo>();
+            // UserDbStorageClient userDbStorageClient = new UserDbStorageClient("BellApp","Users");
             
             //FILE STORAGE
             services.AddSingleton<IUsersRepo,FileUsersRepo>();
+            UserFileStorageClient userFileStorageClient = new("FILESTORAGE","UserData.txt");
             
             //SERVER MEMORY STORAGE
             //services.AddSingleton<IUsersRepo,UsersRepo>();
 
-            UserFileStorageClient userFileStorageClient = new("FILESTORAGE","UserData.txt");
-            UserDbStorageClient userDbStorageClient = new UserDbStorageClient("BellApp","Users");
+            
             services.AddControllers();
             
             services.AddSwaggerGen(c =>

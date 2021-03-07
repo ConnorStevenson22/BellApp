@@ -9,10 +9,10 @@ $(document).ready(function() {
     errorElement: "p",
     rules: {
       fname : {
-        required: true,
+        required: true
       },
       lname: {
-        required: true,
+        required: true
       },
       email: {
         required: true,
@@ -21,7 +21,14 @@ $(document).ready(function() {
       phone: {
         required: true,
         validphone: true
+      },
+      DOB:{
+        required: true
+      },
+      address:{
+        required: true
       }
+
     }
   });
 });
@@ -35,12 +42,16 @@ function addItem() {
     const lname = document.getElementById('lname');
     const phone = document.getElementById('phone');
     const email = document.getElementById('email');
+    const DOB = document.getElementById('DOB');
+    const address = document.getElementById('address');
   
     const item = {
       fname: fname.value.trim(),
       lname: lname.value.trim(),
       phone: phone.value.trim(),
-      email: email.value.trim()
+      email: email.value.trim(),
+      DOB: DOB.value.trim(),
+      address: address.value.trim()
     };
   
     fetch(uri, {
@@ -53,12 +64,17 @@ function addItem() {
     })
       .then(response => response.json())
       .then(() => {
+        $("#formResponse").text("success");
         fname.value = '';
         lname.value = '';
         phone.value = '';
         email.value = '';
+        DOB.value = '';
+        address.value = '';
       })
-      .catch(error => console.error('Unable to add user.', error));
+      .catch((error) => {
+        $("#formResponse").text("failed");
+      });
     }
 }
 
@@ -90,5 +106,13 @@ function getItems() {
       let td4 = tr.insertCell(3);
       textNode = document.createTextNode(item.email);
       td4.appendChild(textNode);
+
+      let td5 = tr.insertCell(4);
+      textNode = document.createTextNode(item.dob);
+      td5.appendChild(textNode);
+
+      let td6 = tr.insertCell(5);
+      textNode = document.createTextNode(item.address);
+      td6.appendChild(textNode);
     });
 }

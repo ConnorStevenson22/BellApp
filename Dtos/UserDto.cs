@@ -6,6 +6,8 @@ namespace  BellApplication.Dtos{
         public string lname{ get; init; }
         public string phone{ get; init; }
         public string email{ get; init; }
+        public DateTime DOB{ get; init;}
+        public string address{ get; init;}
         
     }
 

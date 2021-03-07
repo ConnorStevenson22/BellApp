@@ -9,7 +9,9 @@ namespace BellApplication{
                     fname=user.fname,
                     lname=user.lname,
                     email=user.email,
-                    phone=user.phone
+                    phone=user.phone,
+                    DOB=user.DOB,
+                    address=user.address
                 };
         }
         

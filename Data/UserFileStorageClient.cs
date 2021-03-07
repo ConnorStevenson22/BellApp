@@ -30,12 +30,8 @@ namespace BellApplication.Data{
             string pathString = Path.Combine(path, FileName);
             string[] lines = File.ReadAllLines(pathString);
             foreach(string line in lines){
-                string[] splitdata = line.Split(',');
-                users.Add(new User{ fname = splitdata[0],
-                                    lname = splitdata[1],
-                                    phone = splitdata[2],
-                                    email = splitdata[3],
-                                    id = Guid.Parse(splitdata[4])});
+                
+                users.Add(User.Parse(line));
                 
             }
             return users;

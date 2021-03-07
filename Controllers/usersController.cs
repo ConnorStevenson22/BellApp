@@ -39,7 +39,9 @@ namespace BellApplication.Controllers{
                 fname = userDto.fname,
                 lname = userDto.lname,
                 phone = userDto.phone,
-                email = userDto.email
+                email = userDto.email,
+                DOB = userDto.DOB,
+                address = userDto.address
             };
 
             repo.CreateUser(user);

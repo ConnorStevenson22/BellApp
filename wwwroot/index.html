@@ -27,8 +27,18 @@
             <input placeholder="placeholder" type="text" id="email" name="email" required>
             <label for="email">Email</label>
         </div>
+        <div class="text-selection">
+            <input placeholder="placeholder" type="date" id="DOB" name="DOB" required>
+            <label for="DOB">Birthdate</label>
+        </div>
+        <div class="text-selection">
+            <input placeholder="placeholder" type="text" id="address" name="address" required>
+            <label for="DOB">address</label>
+        </div>
+        
         
         <input type="submit" value="SUBMIT" class="submit-selection">
+        <p id="formResponse"></p>
     </form>
     <div id="Tablewrapper">
     <button onclick="getItems()" class="submit-selection">Refresh items</button>
@@ -38,6 +48,8 @@
                 <th>last name</th>
                 <th>phone</th>
                 <th>email</th>
+                <th>DOB</th>
+                <th>Address</th>
             </tr>
             <tbody id="usersTable"></tbody>
         </table>

@@ -9,14 +9,7 @@ namespace BellApplication.Repos{
     {
         private readonly List<User> users = new()
         {
-            new User
-            {
-                id = Guid.NewGuid(),
-                fname = "asd",
-                lname = "dsa",
-                email = "email@asd.com",
-                phone = "1233333333"
-            }
+
         };
         public IEnumerable<User> GetUsers()
         {

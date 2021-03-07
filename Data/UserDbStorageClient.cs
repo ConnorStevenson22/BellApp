@@ -17,7 +17,7 @@ namespace BellApplication.Data{
         public UserDbStorageClient(string DbName,String TbName){
             this.DbName = DbName;
             this.TbName = TbName;
-            string connectionString = @"Data Source=DESKTOP-H9QDJ5O\SQLEXPRESS;Initial Catalog="+DbName+";User ID=admin;Password=password";
+            string connectionString = @"Data Source=*********FILLINSOURCEHERE**********;Initial Catalog="+DbName+";User ID=admin;Password=password";
             activeConnection = new SqlConnection(connectionString);
             activeConnection.Open();
             _instance = this;
@@ -29,12 +29,14 @@ namespace BellApplication.Data{
             string sql;
             List<User> users = new();
 
-            sql = "Insert into "+TbName+"(id,fname,lname,phone,email) values('"
+            sql = "Insert into "+TbName+"(id,fname,lname,phone,email,dob,address) values('"
                 +user.id+"','"
                 +user.fname+"','"
                 +user.lname+"','"
                 +user.phone+"','"
-                +user.email
+                +user.email+"','"
+                +user.DOB.ToString()+"','"
+                +user.address
                 +"')";
             command = new SqlCommand(sql,activeConnection);
             dataAdapter.InsertCommand = command;
@@ -50,7 +52,7 @@ namespace BellApplication.Data{
             string sql;
             List<User> users = new();
 
-            sql = "select id,fname,lname,phone,email from "+TbName;
+            sql = "select id,fname,lname,phone,email,dob,address from "+TbName;
             command = new SqlCommand(sql,activeConnection);
             dataReader = command.ExecuteReader();
             while(dataReader.Read()){ 
@@ -59,7 +61,9 @@ namespace BellApplication.Data{
                     fname = dataReader.GetString(1),
                     lname = dataReader.GetString(2),
                     phone = dataReader.GetString(3),
-                    email = dataReader.GetString(4)
+                    email = dataReader.GetString(4),
+                    DOB = DateTime.Parse(dataReader.GetString(5)),
+                    address = dataReader.GetString(6)
                 });
             }
             dataReader.Close();
