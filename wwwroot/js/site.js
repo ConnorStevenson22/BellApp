@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 $(document).ready(function() {
 
   jQuery.validator.addMethod("validphone", function(value, element) {
@@ -116,3 +115,4 @@ function getItems() {
       textNode = document.createTextNode(item.address);
       td6.appendChild(textNode);
     });
+}
