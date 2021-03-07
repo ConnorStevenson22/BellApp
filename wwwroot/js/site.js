@@ -53,12 +53,15 @@ function addItem() {
     })
       .then(response => response.json())
       .then(() => {
+        $("#formResponse").text("success");
         fname.value = '';
         lname.value = '';
         phone.value = '';
         email.value = '';
       })
-      .catch(error => console.error('Unable to add user.', error));
+      .catch((error) => {
+        $("#formResponse").text("failed");
+      });
     }
 }
 
